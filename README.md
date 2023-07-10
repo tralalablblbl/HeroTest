@@ -1,5 +1,7 @@
 Create a DB somehwere on your machine in local sql server with the name "Sample" and add run these scripts to get the tables and initial data you'll need on that db.
 
+You may modify the connection string in app settings to connect to your local dd, just make sure you are able to create and access these two tables below if you chnage the db name and modify the conn string.
+
 
 ```
 CREATE TABLE [dbo].[Heroes](
@@ -70,6 +72,8 @@ Task is to modify the angular app and .net code to show a page that lists all th
 
 Create a new Controller called HeroesController and have an endpoint that returns a list of heroes and what brand name they are tied to and display on home page of angular app using an angular service
 
-Next create a new page in angular app with route add-hero that has a form that lets user create a new hero in the db.  The Hero "Name" and "Alias" and "Brand" are all required fields and should show an error if user tries to submit with any of those fields missing  Create a new endpoint on HeroesController for the angular service to call to complete this task.
+Next create a new page in angular app with route add-hero that has a form that lets user create a new hero in the db.  The Hero "Name" and "Alias" and "Brand" are all required fields and should show an error if user tries to submit with any of those fields missing.  Create a new endpoint on HeroesController for the angular service to call to complete this task.
 
 You may create any view models, classes, interfaces, etc that you may need in angular or .net to complete the two tasks.
+
+Do not worry about validating duplicate hero names on add hero page.
