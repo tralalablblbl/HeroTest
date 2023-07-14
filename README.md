@@ -1,6 +1,6 @@
 Create a DB somehwere on your machine in local sql server with the name "Sample" and add run these scripts to get the tables and initial data you'll need on that db.
 
-You may modify the connection string in app settings to connect to your local dd, just make sure you are able to create and access these two tables below if you chnage the db name and modify the conn string.
+You may modify the connection string in app settings to connect to your local db, just make sure your app is able to create and access these two tables below if you change the db name and modify the conn string.
 
 
 ```
