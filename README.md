@@ -70,7 +70,7 @@ VALUES('Superman','Clark Kent', (SELECT id FROM brand WHERE name = 'dc'))
 
 Task is to modify the angular app and .net code to show a page that lists all the heroes on the home page on a table. Also there will be a column to "Delete" the hero which will flag the IsActive column on the Heroes table as false.
 
-Create a new Controller called HeroesController and have an endpoint that returns a list of heroes and what brand name they are tied to and display on home page of angular app using an angular service
+Use the HeroesController and have an endpoint that returns a list of heroes and what brand name they are tied to and display on home page of angular app using an angular service
 
 Next create a new page in angular app with route add-hero that has a form that lets user create a new hero in the db.  The Hero "Name" and "Alias" and "Brand" are all required fields and should show an error if user tries to submit with any of those fields missing.  Create a new endpoint on HeroesController for the angular service to call to complete this task.
 
