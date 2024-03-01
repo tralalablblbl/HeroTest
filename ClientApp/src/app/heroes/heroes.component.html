@@ -1,4 +1,4 @@
-<h1>Populate Table With List of Heroes</h1>
+<h1>Heroes</h1>
 
 <p *ngIf="!heroes"><em>Loading...</em></p>
 
@@ -19,7 +19,7 @@
       <td>{{ hero.Alias }}</td>
       <td>{{ hero.BrandName }}</td>
       <td>
-        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-danger" (click)="delete(hero)">Delete</button>
       </td>
     </tr>
   </tbody>

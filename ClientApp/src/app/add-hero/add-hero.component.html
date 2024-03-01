@@ -1,0 +1,13 @@
+<form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
+  <label for="name">Name: </label>
+  <input id="name" type="text" formControlName="name" required [class.is-invalid]="errors.name">
+
+  <label for="alias">Alias: </label>
+  <input id="alias" type="text" formControlName="alias" required [class.is-invalid]="errors.alias">
+
+  <label for="brand">Brand: </label>
+  <input id="brand" type="text" formControlName="brand" required [class.is-invalid]="errors.brand">
+
+  <p>Complete the form to enable button.</p>
+  <button type="submit" [disabled]="!heroForm.valid">Submit</button>
+</form>

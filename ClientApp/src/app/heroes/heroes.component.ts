@@ -3,11 +3,11 @@ import {HeroesService} from "./heroes.service";
 import {Hero} from "./hero";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
+  selector: 'app-heroes',
+  templateUrl: './heroes.component.html',
   providers:  [ HeroesService ],
 })
-export class HomeComponent {
+export class HeroesComponent {
   public heroes: Hero[] = [];
 
   constructor(
@@ -15,9 +15,17 @@ export class HomeComponent {
   }
 
   ngOnInit() {
+    this.load();
+  }
+
+  load() {
     this.service.get().subscribe((heroes: Hero[]) => {
       this.heroes = heroes;
     });
   }
-
+  delete(hero: Hero){
+    if(confirm(`Are you sure to delete ${hero.Name}?`)) {
+      this.service.delete(hero.Id).subscribe(_ => this.load());
+    }
+  }
 }
