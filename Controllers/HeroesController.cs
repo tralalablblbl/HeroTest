@@ -1,32 +1,26 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HeroTest.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HeroTest.Controllers;
 [ApiController]
 [Route("[controller]")]
 public class HeroesController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
 
     private readonly ILogger<HeroesController> _logger;
+    private readonly IHeroService _heroService;
 
-    public HeroesController(ILogger<HeroesController> logger)
+    public HeroesController(ILogger<HeroesController> logger, IHeroService heroService)
     {
         _logger = logger;
+        _heroService = heroService;
     }
 
     [HttpGet]
-    public IEnumerable<WeatherForecast> Get()
+    public async Task<IActionResult> Get()
     {
-        return Enumerable.Range(1, 500).Select(index => new WeatherForecast
-        {
-            Date = DateTime.Now.AddDays(index),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+        var heroes = await _heroService.Get();
+        return Ok(heroes);
     }
 }
 
