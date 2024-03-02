@@ -1,13 +1,55 @@
 <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
-  <label for="name">Name: </label>
-  <input id="name" type="text" formControlName="name" required [class.is-invalid]="errors.name">
-
-  <label for="alias">Alias: </label>
-  <input id="alias" type="text" formControlName="alias" required [class.is-invalid]="errors.alias">
-
-  <label for="brand">Brand: </label>
-  <input id="brand" type="text" formControlName="brand" required [class.is-invalid]="errors.brand">
-
+  <div class="row">
+    <div class="col mb-2">
+      <label for="name">Name: </label>
+      <input id="name" type="text" formControlName="name" required [class.is-invalid]="errors.name || (name.invalid && (name.dirty || name.touched))">
+      <div *ngIf="errors.name || (name.invalid && (name.dirty || name.touched))" class="invalid-feedback">
+        <div *ngIf="name.errors?.['required']">
+          This field is required.
+        </div>
+        <div *ngIf="name.errors?.['maxlength']">
+          This field must have at most 100 characters.
+        </div>
+        <div *ngIf="errors.name">
+          {{errors.name}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-2">
+      <label for="alias">Alias: </label>
+      <input id="alias" type="text" formControlName="alias" required [class.is-invalid]="errors.alias || (alias.invalid && (alias.dirty || alias.touched))">
+      <div *ngIf="errors.alias || (alias.invalid && (alias.dirty || alias.touched))" class="invalid-feedback">
+        <div *ngIf="alias.errors?.['required']">
+          This field is required.
+        </div>
+        <div *ngIf="alias.errors?.['maxlength']">
+          This field must have at most 50 characters.
+        </div>
+        <div *ngIf="errors.alias">
+          {{errors.alias}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-2">
+      <label for="brand">Brand: </label>
+      <input id="brand" type="text" formControlName="brand" required [class.is-invalid]="errors.brand || (brand.invalid && (brand.dirty || brand.touched))">
+      <div *ngIf="errors.brand || (brand.invalid && (brand.dirty || brand.touched))" class="invalid-feedback">
+        <div *ngIf="brand.errors?.['required']">
+          This field is required.
+        </div>
+        <div *ngIf="brand.errors?.['maxlength']">
+          This field must have at most 100 characters.
+        </div>
+        <div *ngIf="errors.brand">
+          {{errors.brand}}
+        </div>
+      </div>
+    </div>
+  </div>
   <p>Complete the form to enable button.</p>
   <button type="submit" [disabled]="!heroForm.valid">Submit</button>
 </form>

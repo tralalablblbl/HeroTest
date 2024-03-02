@@ -30,4 +30,16 @@ export class AddHeroComponent {
         }
       })
   }
+
+  get name() {
+    return this.heroForm.get('name')!;
+  }
+
+  get alias() {
+    return this.heroForm.get('alias')!;
+  }
+
+  get brand() {
+    return this.heroForm.get('brand')!;
+  }
 }
