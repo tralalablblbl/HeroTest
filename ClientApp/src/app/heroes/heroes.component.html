@@ -1,0 +1,26 @@
+<h1>Heroes</h1>
+
+<p *ngIf="!heroes"><em>Loading...</em></p>
+
+<table class="table table-hover" *ngIf="heroes">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Alias</th>
+      <th>Brand</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let hero of heroes">
+      <td>{{ hero.Id }}</td>
+      <td>{{ hero.Name }}</td>
+      <td>{{ hero.Alias }}</td>
+      <td>{{ hero.BrandName }}</td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="delete(hero)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

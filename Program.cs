@@ -1,4 +1,5 @@
 using HeroTest.Models;
+using HeroTest.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +11,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<SampleContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("ObjectDB"));
-
 });
+builder.Services
+    .AddScoped<IHeroService, HeroService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>

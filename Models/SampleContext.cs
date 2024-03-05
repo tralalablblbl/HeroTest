@@ -29,6 +29,7 @@ public partial class SampleContext : DbContext
         modelBuilder.Entity<Brand>(entity =>
         {
             entity.ToTable("Brand");
+            entity.Property(e => e.Id).UseIdentityColumn();
 
             entity.Property(e => e.CreatedOn).HasDefaultValueSql("(getutcdate())");
 
@@ -44,6 +45,7 @@ public partial class SampleContext : DbContext
         modelBuilder.Entity<Hero>(entity =>
         {
             entity.Property(e => e.Alias).HasMaxLength(50);
+            entity.Property(e => e.Id).UseIdentityColumn();
 
             entity.Property(e => e.BrandId).HasDefaultValueSql("((1))");
 
